@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <title></title>
+    <script type="text/javascript">
+        var app = angular.module('MyApp', []);
+        app.controller("Insta", function ($scope) {
+            $scope.items = [
+                { ISBN: "5674789", Name: "Asp.Net MVC", Price: 560, Quantity: 20 },
+                { ISBN: "4352134", Name: "AngularJS", Price: 45044, Quantity: 25 },
+                { ISBN: "2460932", Name: "Javascript", Price: 180, Quantity: 15 },
+                { ISBN: "4352134", Name: "AngularJS", Price: 450, Quantity: 25 },
+                { ISBN: "2460932", Name: "Javascript", Price: 180, Quantity: 15 }
+            ];
+            $scope.dummy = [{"uniqlo_ut": 0.15789473684210525,"jw_anderson": 0.13157894736842105,"kaws": 0.07894736842105263, "snoopygrams": 0.07894736842105263,"eamesoffice": 0.07894736842105263,"marimekkodesignhouse": 0.07894736842105263,"jonathan_anderson": 0.02631578947368421,  "jacobjonasthecompany": 0.02631578947368421,"sachzky": 0.02631578947368421, "doee": 0.02631578947368421 }
+            ]
+        });
+        app.filter('percentage', ['$filter', function ($filter) {
+          return function (input, decimals) {
+            return $filter('number')(input * 100, decimals) + '%';
+          };
+        }]);
+
+
+          // "mentions": {"uniqlo_ut": 0.15789473684210525,"jw_anderson": 0.13157894736842105,"kaws": 0.07894736842105263, "snoopygrams": 0.07894736842105263,"eamesoffice": 0.07894736842105263,"marimekkodesignhouse": 0.07894736842105263,"jonathan_anderson": 0.02631578947368421,  "jacobjonasthecompany": 0.02631578947368421,"sachzky": 0.02631578947368421, "doee": 0.02631578947368421 }, 
+    </script>
+</head>
+<body ng-app="MyApp">
+    <div class="container-fluid" ng-controller="Insta">
+        <div class="col-md-12">
+            <table class="table">
+                <tr>
+                    <th>Books</th>
+                    <th>Price</th>
+                    <th>ISBN</th>
+                    <th>Quantity</th>
+
+                </tr>
+                <tr ng-repeat="data in items">
+                    <td>{{data.Name}}</td>
+                    <td>{{data.Price | currency:'&#8377;'}}</td>
+                    <td>{{data.ISBN}}</td>
+                    <td>{{data.Quantity}}</td>
+                </tr>
+               
+            </table>
+            <table class="table">
+                <tr>
+                    <th>Name</th>
+                    <th>%</th>
+                  
+
+                </tr>
+                <tr ng-repeat="data in dummy">
+                    <td>{{data.uniqlo_ut | percentage:2}} <br/>
+                        {{data.jw_anderson | percentage:2}}<br/>
+                        {{data.kaws | percentage:2}}<br/>
+                        {{data.snoopygrams | percentage:2}}<br/>
+                        {{data.eamesoffice | percentage:2}}<br/>
+                        {{data.marimekkodesignhouse | percentage:2}}<br/>
+                        {{data.jonathan_anderson | percentage:2}}<br/>
+                        {{data.jacobjonasthecompany | percentage:2}}<br/>
+                         {{data.sachzky | percentage:2}}<br/>
+                        {{data.doee | percentage:2}}<br/>
+                </td>
+                   
+                   
+                </tr>
+               
+            </table>
+          
+
+        </div>
+    </div>
+</body>
+</html>

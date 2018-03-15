@@ -1,0 +1,45 @@
+﻿<html>
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<title>
+Login page
+</title>
+</head>
+<body>
+	<div class="container">
+
+		<div class="content">
+		<form name="login">			
+			<div class="loginmodal-container" style="text-align: center;">
+				<img src="image/insta.png" height="35">
+				<h1>Sign up to see photos and videos from your friends.</h1><br>				  
+					<input type="text" name="userid" placeholder="Username">
+					<input type="password" name="pswrd" placeholder="Password">
+					<input type="submit" onclick="check(this.form)" value="Login" class="login loginmodal-submit">		
+				</div>
+		</form>
+	</div>
+</div>
+
+
+<script language="javascript">
+function check(form)/*function to check userid & password*/
+{
+ /*the following code checkes whether the entered userid and password are matching*/
+ if(form.userid.value == "Raman" && form.pswrd.value == "15071991")
+  {
+    window.open('Profile.html')/*opens the target page while Id & password matches*/
+  }
+ else
+ {
+   alert("Error Password or Username")/*displays error message*/
+  }
+}
+</script>
+</body>
+</html>
